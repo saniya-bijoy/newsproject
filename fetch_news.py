@@ -12,3 +12,18 @@ conn = pg8000.connect(
     password="saniyabijoy",
     port="5432"
 )
+url = "https://newsapi.org/v2/top-headlines"
+
+params = {
+    "country": "us",
+    "category": "technology",
+    "apiKey": API_KEY
+}
+
+response = requests.get(url, params=params)
+
+print(response.json())
+
+articles = response.json().get("articles", [])
+
+cur = conn.cursor()
