@@ -68,3 +68,16 @@ else:
             "created_at"
         ]
     ]
+    def color_sentiment(value):
+        if value > 0:
+            return "background-color: green; color: white"
+        elif value < 0:
+            return "background-color: red; color: white"
+        else:
+            return "background-color: gray; color: white"
+
+    styled_df = display_df.style.map(
+    color_sentiment,
+    subset=["sentiment_score"]
+)
+
