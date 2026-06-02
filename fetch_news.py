@@ -27,3 +27,12 @@ print(response.json())
 articles = response.json().get("articles", [])
 
 cur = conn.cursor()
+
+for article in articles:
+    title = article.get("title")
+    source_name = article.get("source", {}).get("name")
+    published_at = article.get("publishedAt")
+
+    news_date = datetime.strptime(published_at, "%Y-%m-%dT%H:%M:%SZ").date()
+
+    sentiment_score = TextBlob(title).sentiment.polarity
