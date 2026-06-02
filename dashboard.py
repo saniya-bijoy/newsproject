@@ -42,3 +42,9 @@ st.sidebar.markdown("### Explanation")
 st.sidebar.markdown("""
 <div class="sidebar-text">
 Sentiment score indicates whether the news sentiment is positive or negative.
+
+Scores above 0 are positive.  
+Scores below 0 are negative.  
+Scores near 0 are neutral.
+</div>
+""", unsafe_allow_html=True)
