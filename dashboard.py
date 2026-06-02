@@ -32,3 +32,9 @@ body {
 }
 </style>
 """, unsafe_allow_html=True)
+
+st.sidebar.radio(
+    "",
+    ["View News", "Analytics"]
+)
+
