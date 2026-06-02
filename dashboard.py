@@ -48,3 +48,23 @@ Scores below 0 are negative.
 Scores near 0 are neutral.
 </div>
 """, unsafe_allow_html=True)
+
+st.sidebar.markdown("### Latest update data")
+if not df.empty:
+    st.sidebar.write(df["created_at"].max())
+
+st.markdown('<div class="main-title">News analytics sentiment score dashboard</div>', unsafe_allow_html=True)
+
+if df.empty:
+    st.warning("No news data found in database.")
+else:
+    display_df = df[
+        [
+            "news_date",
+            "source_name",
+            "title",
+            "sentiment_score",
+            "sentiment_label",
+            "created_at"
+        ]
+    ]
