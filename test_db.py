@@ -26,3 +26,9 @@ CREATE TABLE IF NOT EXISTS news_data (
 
 # Save changes
 conn.commit()
+
+print("Table created successfully!")
+
+# Close cursor and connection
+cur.close()
+conn.close()
